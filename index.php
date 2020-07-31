@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/src/Html2Pdf.php'; 
+require_once __DIR__ . '/vendor/autoload.php'; 
 
 use Spipu\Html2Pdf\Html2Pdf;
 
@@ -48,4 +48,6 @@ $content .= '
 $html2pdf = new Html2Pdf('P', 'A4', 'fr');
 $html2pdf->writeHTML($content);
 $filename = "pdf-document.pdf";
-$file = $html2pdf->output($filename);
+$pdfdoc = $html2pdf->output($filename);
+$attachment = chunk_split(base64_encode($pdfdoc));
+echo $attachment;
