@@ -46,6 +46,7 @@ $content .= '
 
 
 $html2pdf = new Html2Pdf('P', 'A4', 'fr');
+$html2pdf->pdf->SetDisplayMode('fullpage');
 $html2pdf->writeHTML($content);
 $filename = "pdf-document.pdf";
 $pdfdoc = $html2pdf->output($filename);
