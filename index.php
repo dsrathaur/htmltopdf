@@ -49,6 +49,7 @@ $html2pdf = new Html2Pdf('P', 'A4', 'fr');
 $html2pdf->pdf->SetDisplayMode('fullpage');
 $html2pdf->writeHTML($content);
 $filename = "pdf-document.pdf";
-$pdfdoc = $html2pdf->output($filename);
+$pdfdoc = $html2pdf->output();
+file_put_contents($filename, $file);
 $attachment = chunk_split(base64_encode($pdfdoc));
 echo $attachment;
